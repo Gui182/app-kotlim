@@ -2,9 +2,12 @@ package br.com.alura.orgs.ui.activity
 
 import android.app.Activity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.orgs.R
+import br.com.alura.orgs.model.Produto
 import br.com.alura.orgs.ui.recyclerView.adapter.ListaProdutosAdapter
+import java.math.BigDecimal
 
 class MainActivity : Activity() {
 
@@ -19,6 +22,20 @@ class MainActivity : Activity() {
         valor.text = "19.99"*/
 
         val recycleView = findViewById<RecyclerView>(R.id.recyclerView);
-        recycleView.adapter = ListaProdutosAdapter();
+        recycleView.adapter = ListaProdutosAdapter(
+            context = this, produtos = listOf(
+                Produto(
+                    nome = "teste",
+                    descricao = "teste desc",
+                    valor = BigDecimal("19.99")
+                ),
+                Produto(
+                    nome = "teste1",
+                    descricao = "teste desc1",
+                    valor = BigDecimal("29.99")
+                ),
+            )
+        );
+        //recycleView.layoutManager = LinearLayoutManager(this);
     }
 }
