@@ -12,12 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Orgs"
         tools:targetApi="31">
-<<<<<<< HEAD
-        <activity
-            android:name=".ui.activity.MainActivity"
-=======
         <activity android:name=".ui.activity.MainActivity"
->>>>>>> 8011c06d142320a1f44138e07e11ae9bdbac5c71
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
