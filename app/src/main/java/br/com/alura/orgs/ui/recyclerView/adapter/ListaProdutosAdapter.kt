@@ -8,6 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.orgs.R
 import br.com.alura.orgs.model.Produto
+import java.math.BigDecimal
+import java.text.NumberFormat
+import java.util.Locale
 
 class ListaProdutosAdapter(
     private val context: Context,
@@ -21,10 +24,17 @@ class ListaProdutosAdapter(
         fun vincula(produto: Produto) {
             val nome = itemView.findViewById<TextView>(R.id.activity_formulario_produto_nome);
             nome.text = produto.nome;
-            val descricao = itemView.findViewById<TextView>(R.id.activity_formulario_produto_descricao);
+            val descricao =
+                itemView.findViewById<TextView>(R.id.activity_formulario_produto_descricao);
             descricao.text = produto.descricao;
             val valor = itemView.findViewById<TextView>(R.id.activity_formulario_produto_valor);
-            valor.text = produto.valor.toPlainString();
+            val valorEmMoeda: String = formataParaMoedaBrasileira(produto.valor)
+            valor.text = valorEmMoeda;
+        }
+
+        private fun formataParaMoedaBrasileira(valor: BigDecimal): String {
+            val formatador: NumberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
+            return formatador.format(valor)
         }
     };
 
