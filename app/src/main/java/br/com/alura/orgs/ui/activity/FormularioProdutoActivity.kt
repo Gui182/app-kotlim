@@ -12,9 +12,20 @@ import java.math.BigDecimal
 
 class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario_produto) {
 
+    private val binding by lazy {
+//        ActivityFormularioProdutoBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         configuraBotaoSalvar()
+//        binding.activityFormularioProdutoImagem.setOnClickListener {
+//            AlertDialog.Builder(this)
+//                .setView(R.layout.formulario_imagem)
+//                .setPositiveButton("Confirmar") { _, _ -> }
+//                .setNegativeButton("Cancelar") { _, _ -> }
+//                .show()
+//        }
     }
 
     private fun configuraBotaoSalvar() {
