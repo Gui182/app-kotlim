@@ -4,28 +4,31 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import br.com.alura.orgs.R
 import br.com.alura.orgs.dao.ProdutosDao
+import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding
 import br.com.alura.orgs.model.Produto
 import java.math.BigDecimal
 
-class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario_produto) {
+class FormularioProdutoActivity : AppCompatActivity() {
 
     private val binding by lazy {
-//        ActivityFormularioProdutoBinding.inflate(layoutInflater)
+       ActivityFormularioProdutoBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(binding.root)
         configuraBotaoSalvar()
-//        binding.activityFormularioProdutoImagem.setOnClickListener {
-//            AlertDialog.Builder(this)
-//                .setView(R.layout.formulario_imagem)
-//                .setPositiveButton("Confirmar") { _, _ -> }
-//                .setNegativeButton("Cancelar") { _, _ -> }
-//                .show()
-//        }
+        binding.actitivityFormularioProdutoImagem.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setView(R.layout.formulario_imagem)
+                .setPositiveButton("Confirmar") { _, _ -> }
+                .setNegativeButton("Cancelar") { _, _ -> }
+                .show()
+        }
     }
 
     private fun configuraBotaoSalvar() {
